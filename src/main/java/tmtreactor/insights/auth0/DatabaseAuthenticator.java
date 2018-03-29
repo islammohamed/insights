@@ -10,9 +10,12 @@ import tmtreactor.insights.Authenticator;
 @Component
 public class DatabaseAuthenticator implements Authenticator {
 
+    AuthConfig authenticationConfig;
 
     @Autowired
-    AuthConfig authenticationConfig;
+    public DatabaseAuthenticator(AuthConfig authenticationConfig) {
+        this.authenticationConfig = authenticationConfig;
+    }
 
     @Override
     public String authenticate() {
@@ -24,6 +27,5 @@ public class DatabaseAuthenticator implements Authenticator {
         ar.setScope(authenticationConfig.SCOPE);
 
         return ar.execute().getIdToken();
-
     }
 }

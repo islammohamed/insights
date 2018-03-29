@@ -19,8 +19,6 @@ public class App implements CommandLineRunner {
         SpringApplication app = new SpringApplication(App.class);
         app.setBannerMode(Banner.Mode.OFF);
         app.run();
-
-
     }
 
     @Override
